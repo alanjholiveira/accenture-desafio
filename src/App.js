@@ -14,11 +14,14 @@ function App() {
   }
 
   function handleEnter()  {
-    api.get('/processar', {
+    let response = api.get('/processar', {
       params: {
         text: valueDiplay,
       }
     });
+
+    setValueArray([]);
+    setValueDisplay(response.data);
   }
 
   return (
