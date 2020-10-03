@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import phone from './assets/phone.jpg'
 import './App.css';
+import api from "./config/api";
 
 function App() {
   const [valueDiplay, setValueDisplay] = useState('');
@@ -13,13 +13,22 @@ function App() {
    setValueArray(prevArray => [...prevArray, value]);
   }
 
+  function handleEnter()  {
+    api.get('/processar', {
+      params: {
+        text: valueDiplay,
+      }
+    });
+  }
+
   return (
      <div className="container">
-       {/*<img src={phone} alt="teste" width={550} />*/}
-
        <div className="phone-container">
         <div className="phone-display">
-            <span id="displayValue">{valueDiplay}</span>
+         <div className={"phone-display-row"} >
+           <span id="displayValue">{valueDiplay}</span>
+           <button type={"button"} onClick={() => handleEnter()} className={'btn'}>OK</button>
+         </div>
         </div>
          <div id="keyboard" className="phone-keyboard">
           <div className={"phone-keyboard-row"}>
@@ -41,9 +50,9 @@ function App() {
            </div>
 
            <div className={"phone-keyboard-row"}>
-             <button type={"button"} className={"btn "}>*</button>
-             <button type={"button"} className={"btn "} onClick={() => btnNumb(' ')}>0</button>
-             <button type={"button"} className={"btn "}>#</button>
+             <button type={"button"} className={"btn"} onClick={() => btnNumb('*')}>*</button>
+             <button type={"button"} className={"btn"} onClick={() => btnNumb(' ')}>0</button>
+             <button type={"button"} className={"btn"} onClick={() => btnNumb('#')}>#</button>
            </div>
 
          </div>

@@ -18,6 +18,18 @@
   border-radius: 10px;
 }
 
+.phone-display-row {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.phone-display-row button {
+  color: #fff;
+  height: 25px;
+  font-size: 9px;
+  border: 1px solid gray;
+}
+
 .phone-display span {
   font-size: 20px;
   color: #fff
