@@ -21,7 +21,7 @@ function App() {
     });
 
     setValueArray([]);
-    setValueDisplay(response.data);
+    setValueDisplay(response.palavra);
   }
 
   return (
@@ -30,7 +30,10 @@ function App() {
         <div className="phone-display">
          <div className={"phone-display-row"} >
            <span id="displayValue">{valueDiplay}</span>
-           <button type={"button"} onClick={() => handleEnter()} className={'btn'}>OK</button>
+           {valueArray.length > 0 ? (
+             <button type={"button"} onClick={() => handleEnter()} className={'btn'}>OK</button>
+           ) : null}
+
          </div>
         </div>
          <div id="keyboard" className="phone-keyboard">
