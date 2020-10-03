@@ -4,12 +4,12 @@ import phone from './assets/phone.jpg'
 import './App.css';
 
 function App() {
-  const [valueDiplay, setValueDisplay] = useState();
+  const [valueDiplay, setValueDisplay] = useState('');
   const [valueArray, setValueArray] = useState([]);
 
 
   function btnNumb(value) {
-   setValueDisplay(value);
+   setValueDisplay(`${valueDiplay}${value}`);
    setValueArray(prevArray => [...prevArray, value]);
   }
 
@@ -42,7 +42,7 @@ function App() {
 
            <div className={"phone-keyboard-row"}>
              <button type={"button"} className={"btn "}>*</button>
-             <button type={"button"} className={"btn "} onClick={() => btnNumb()}>0</button>
+             <button type={"button"} className={"btn "} onClick={() => btnNumb(' ')}>0</button>
              <button type={"button"} className={"btn "}>#</button>
            </div>
 
